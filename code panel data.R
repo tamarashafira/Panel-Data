@@ -1,5 +1,5 @@
 library(openxlsx)
-confirmed.corona= read.xlsx("D:\\UII (STATISTIKA)\\SEMESTER 6\\DATVIS\\UTS\\data corona UTS.xlsx",sheet=1, startRow=1, colNames = TRUE )
+confirmed.corona= read.xlsx("YOURE LOCAL DISK\\corona data.xlsx",sheet=1, startRow=1, colNames = TRUE )
 View(confirmed.corona)
 
 continent.vec= confirmed.corona[,1]
@@ -20,7 +20,7 @@ for (i in 1:185) {
 
 Days= rep(1:85, 185)
 
-#mengambil data confirmed
+#take confirmed data
 Confirmed= c()
 for (i in 1:185){
   x=confirmed.corona[i,]
@@ -30,7 +30,7 @@ for (i in 1:185){
 }
 Confirmed
 
-#mengmbil data  kematian
+#take deaths data
 death.corona= read.xlsx("D:\\UII (STATISTIKA)\\SEMESTER 6\\DATVIS\\UTS\\data corona UTS.xlsx",sheet=2, startRow=1, colNames = TRUE )
 Death= c()
 for (i in 1:185){
@@ -41,7 +41,7 @@ for (i in 1:185){
 }
 Death
 
-#mengmbil data  sembuh
+#take recovered data
 recovered.corona= read.xlsx("D:\\UII (STATISTIKA)\\SEMESTER 6\\DATVIS\\UTS\\data corona UTS.xlsx",sheet=3, startRow=1, colNames = TRUE )
 Recovered= c()
 for (i in 1:185){
@@ -54,7 +54,7 @@ Recovered
 
 covid_frame=data.frame(Continent,Country,Days,Confirmed,Death,Recovered)
 
-#donlot data
+#download data
 colnames(covid_frame)= c("Continent","Country","Days","Confirmed","Death", "Recovered")
-write.csv(covid_frame,file = "D:\\UII (STATISTIKA)\\SEMESTER 6\\DATVIS\\UTS\\Coronavirus.csv",row.names = TRUE)
+write.csv(covid_frame,file = "YOURE LOCAL DISK\\Coronavirus.csv",row.names = TRUE)
 
